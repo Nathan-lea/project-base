@@ -1,0 +1,32 @@
+# skills-required.txt — 本项目所需的 Agent Skills 清单（模板）
+# 每行一个技能名；# 开头为注释；空行忽略。
+# 层前缀：
+#   sp: = 流程型插件层（经 opencode.json plugins 注册）
+#   gl: = 全局个人层（~/.config/opencode/skills）
+# 用法：按项目实际增删。sp: 为与语言无关的流程型技能，通常全套保留；
+#       gl: 为实现型技能，需按本项目技术栈选取，不需要的删掉。
+
+# ---- 流程型（sp:）----
+sp:brainstorming
+sp:writing-plans
+sp:executing-plans
+sp:subagent-driven-development
+sp:test-driven-development
+sp:requesting-code-review
+sp:receiving-code-review
+sp:systematic-debugging
+sp:verification-before-completion
+sp:using-git-worktrees
+sp:finishing-a-development-branch
+sp:dispatching-parallel-agents
+sp:using-superpowers
+
+# ---- 实现型（gl:）——按项目技术栈选取 ----
+# 与语言/框架无关的通用能力：
+gl:code-reviewer
+gl:code-documenter
+gl:architecture-designer
+# 语言与框架专用（示例，按实际项目栈启用）：
+# gl:<backend>-expert
+# gl:<frontend>-expert
+# gl:<database>-expert
