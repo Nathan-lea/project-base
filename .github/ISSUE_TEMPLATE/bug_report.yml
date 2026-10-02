@@ -1,0 +1,50 @@
+name: 隐私与文档问题
+description: 报告规则不生效、断链、编号错误等问题（安全问题请勿提交公开 issue）
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么
+      description: 预期行为 vs 实际表现
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 完整命令序列，从干净状态开始
+      placeholder: |
+        git clone <本仓库地址> project-base && cd project-base
+        cp templates/privacy-patterns.example .privacy-patterns
+        bash templates/privacy.test.sh
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境
+      value: |
+        - OS:
+        - git 版本:
+        - bash 版本:
+        - 代理/镜像源:
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 已自查
+      options:
+        - label: 已运行 `bash templates/privacy.test.sh`，问题在测试中可复现
+          required: false
+        - label: 已确认 `.privacy-patterns` 未被提交入库
+          required: false

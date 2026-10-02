@@ -1,0 +1,43 @@
+name: 补充文档
+description: 增补或修正文档、模板、硬规则
+labels: [documentation]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: 改了什么
+      description: 说清改了哪些文件、哪些地方
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 为什么改
+      description: 现在的写法有什么问题，改完解决了什么
+    validations:
+      required: true
+
+  - type: textarea
+    id: checked
+    attributes:
+      label: 自查结果
+      description: 粘贴命令输出，说明每项都通过了
+      placeholder: |
+        bash templates/privacy.test.sh        # PASS=13 FAIL=0
+        相对链接检查                        # 全部可达
+        章节编号检查                        # 连续无跳号
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consistency
+    attributes:
+      label: 一致性
+      options:
+        - label: 中文撰写（标识符与标准格式除外）
+          required: true
+        - label: 交叉引用、章节编号、相对链接已同步更新，无断链
+          required: true
+        - label: 若改了 `templates/` 下的脚本，已同步更新 `privacy.test.sh` 的断言
+          required: false

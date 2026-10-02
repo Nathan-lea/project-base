@@ -1,0 +1,56 @@
+name: 基座自检
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 准备隐私模式文件
+        # 钩子 fail-closed：模式文件缺失会阻断提交，CI 里用示例即可
+        run: |
+          cp templates/privacy-patterns.example .privacy-patterns
+          chmod 600 .privacy-patterns
+
+      - name: Shell 语法检查
+        run: |
+          for f in templates/*.sh; do
+            bash -n "$f" || { echo "语法错误: $f"; exit 1; }
+          done
+
+      - name: 隐私防护行为测试
+        run: bash templates/privacy.test.sh
+
+      - name: 技能清单完整性
+        run: bash templates/skills-check.sh --check
+
+      - name: 历史隐私体检
+        run: bash templates/history-scan.sh
+
+      - name: 文档一致性
+        run: |
+          # 1. 相对链接不得断链
+          fail=0
+          for f in $(find . -name '*.md' -not -path './.git/*'); do
+            d=$(dirname "$f")
+            while read -r l; do
+              [ -f "$d/$l" ] || { echo "断链: $f -> $l"; fail=1; }
+            done < <(grep -oE '\]\([A-Za-z0-9_./-]+\.md\)' "$f" 2>/dev/null \
+                     | sed 's/](//;s/)$//' | sort -u)
+          done
+          [ $fail -eq 0 ] || exit 1
+          echo "相对链接全部可达"
+
+      - name: .privacy-patterns 未入库
+        run: |
+          if git ls-files | grep -qE '\.privacy-patterns$'; then
+            echo "::error::.privacy-patterns 被提交入库了，它必须保持不入库"
+            exit 1
+          fi
+          echo "OK: .privacy-patterns 未入库"
