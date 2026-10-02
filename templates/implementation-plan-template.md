@@ -1,6 +1,6 @@
 # <项目名> <阶段> 实施计划
 
-> 设计：`docs/<project>-p<phase>-design.md`（commit <hash>）
+> 设计：`docs/<project>-p<阶段>-design.md`（commit <hash>）
 > 范围：<一句话> ｜ 验收映射：A1–An ｜ 门禁：<按语言门禁，见 WORKFLOW.md §0.2>
 > 纪律：<分支策略>；单任务单 commit；每任务独立只读 code-reviewer（0C/0I 放行、先提交后评审、问题 amend）；TDD RED→GREEN。
 

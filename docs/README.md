@@ -9,7 +9,7 @@
 | 技术栈选型 | `<project>-tech-stack.md` | 技术选型唯一记录；第 7/8 节推导出门禁命令与所需技能 |
 | 权威设计文档 | `<project>-design.md` | 需求、非目标、架构、ADR 决策清单、阶段定义 |
 | 阶段设计 | `<project>-p<阶段>-design.md` | 该阶段的详设 |
-| 实施计划 | `<project>-implementation-plan-p<阶段>.md` | Task 划分、验收映射、门禁、纪律 |
+| 实施计划 | `<project>-p<阶段>-plan.md` | Task 划分、验收映射、门禁、纪律 |
 | 验收清单 | `<project>-p<阶段>-acceptance.md` | 验收场景表、执行记录、未覆盖项 |
 | 进度活文档 | `<project>-task-tracking.md` | **唯一进度源**，每会话收尾更新 |
 | 交接文档 | `<project>-p<阶段>-handoff.md` | 复杂项目按需：提交拓扑、裁决全文、遗留队列 |

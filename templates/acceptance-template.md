@@ -1,7 +1,7 @@
 # <项目名> <阶段> 验收清单 + 沙箱执行记录
 
-> 计划：`docs/<project>-implementation-plan-p<phase>.md`（commit <hash>）
-> 设计：`docs/<project>-p<phase>-design.md`（commit <hash>）
+> 计划：`docs/<project>-p<阶段>-plan.md`（commit <hash>）
+> 设计：`docs/<project>-p<阶段>-design.md`（commit <hash>）
 > 执行环境：<依赖服务 + 服务端 :<port> + 前端 :<port> / ...> ｜ 日期：<date>
 
 ## 状态
@@ -21,9 +21,9 @@
 
 ## 沙箱执行记录
 
-- `scripts/e2e_p<phase>.sh` 实跑：`RESULT(<phase>): PASS=n FAIL=0`（exit 0）；
+- `scripts/e2e_p<阶段>.sh` 实跑：`RESULT(<阶段>): PASS=n FAIL=0`（exit 0）；
 - 链回归（内嵌重跑）：p<prev>=<n>/p<prev2>=<n>/... 全绿；
-- UI 冒烟：浏览器自动化截图 `<tmp>/<phase>-ui.png`；
+- UI 冒烟：浏览器自动化截图 `<tmp>/<阶段>-ui.png`；
 - 门禁终态：格式检查空 / 静态检查 0 / 单测全 PASS / 竞态 ok / 前端 build ✓ / 工作树干净。
 
 ## 真实验收（沙箱不可验项补充）

@@ -52,6 +52,19 @@ jobs:
           [ $fail -eq 0 ] || exit 1
           echo "相对链接全部可达"
 
+          # 2. 文档命名约定不得漂移
+          # 阶段号位置：统一 <project>-p<阶段>-<作用>.md，旧式把阶段号放
+          # 尾巴的写法（implementation-plan- 开头）已废弃。
+          # 占位符：阶段占位符统一用中文写法，英文拼法已废弃。
+          # 模式写成 [p] 而非 p —— 否则这条断言会匹配到它自己所在的那行。
+          bad=0
+          while IFS= read -r hit; do
+            echo "::error::命名约定漂移: $hit"
+            bad=1
+          done < <(git grep -nE 'implementation-plan-[p]<|<[p]hase>' -- '*.md' || true)
+          [ $bad -eq 0 ] || exit 1
+          echo "命名约定无漂移"
+
       - name: .privacy-patterns 未入库
         run: |
           if git ls-files | grep -qE '\.privacy-patterns$'; then

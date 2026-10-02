@@ -1,7 +1,7 @@
 # <计划名> 实施台账（gitignored）
 
-> 计划：`docs/<project>-implementation-plan-p<phase>.md`（commit <hash>）
-> 设计：`docs/<project>-p<phase>-design.md`（commit <hash>）
+> 计划：`docs/<project>-p<阶段>-plan.md`（commit <hash>）
+> 设计：`docs/<project>-p<阶段>-design.md`（commit <hash>）
 > 纪律：<分支策略>；单任务单 commit；每任务独立只读 code-reviewer（0C/0I 放行、先提交后评审、问题 amend）；TDD RED→GREEN；门禁见计划头。
 
 ## Task 1 <标题>

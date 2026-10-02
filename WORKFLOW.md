@@ -164,7 +164,7 @@ cp templates/skills-required.txt skills-required.txt
 
 ## 阶段 2：写实施计划
 
-模板：复制 `templates/implementation-plan-template.md` → `docs/<project>-implementation-plan-p<phase>.md`
+模板：复制 `templates/implementation-plan-template.md` → `docs/<project>-p<阶段>-plan.md`
 
 ```
 计划头（范围 / 验收映射 A1–An / 门禁 / 纪律）
@@ -261,7 +261,7 @@ chore(scope): 描述
 
 ## 阶段 5：验收与链零回归
 
-进入本阶段时，复制 `templates/acceptance-template.md` → `docs/<project>-p<phase>-acceptance.md`，并复制 `templates/e2e-template.sh` → 脚本目录下按阶段命名（如 `e2e_p<phase>.sh`），独占该阶段命名空间。
+进入本阶段时，复制 `templates/acceptance-template.md` → `docs/<project>-p<阶段>-acceptance.md`，并复制 `templates/e2e-template.sh` → 脚本目录下按阶段命名（如 `e2e_p<阶段>.sh`），独占该阶段命名空间。
 
 ### 5.1 分层验收
 
@@ -387,12 +387,12 @@ chore(scope): 描述
 | 技术栈选型 | `docs/<project>-tech-stack.md` |
 | 权威设计文档 | `docs/<project>-design.md` |
 | 阶段设计 | `docs/<project>-p<阶段>-design.md` |
-| 实施计划 | `docs/<project>-implementation-plan-p<阶段>.md` |
+| 实施计划 | `docs/<project>-p<阶段>-plan.md` |
 | 验收清单 | `docs/<project>-p<阶段>-acceptance.md` |
 | 进度活文档 | `docs/<project>-task-tracking.md` |
 | 交接文档 | `docs/<project>-p<阶段>-handoff.md`（按需） |
 
-> 禁用日期前缀命名。专项设计与计划可平铺 `docs/<topic>-design.md`。
+> 禁用日期前缀命名。专项设计与计划可平铺 `docs/<topic>-design.md`。命名约束（阶段号补零、作用词取值、跨阶段文档不承诺排序）以 `AGENTS.md`「文档规范」为唯一出处，此处不重复。
 
 ### 内容要点
 

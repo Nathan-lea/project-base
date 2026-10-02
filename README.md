@@ -89,10 +89,10 @@ project-base/
 | **立项前**（步骤 3） | 确定技术栈与周边环境，**推导出门禁命令与所需技能** | `tech-stack-template.md` | `docs/<project>-tech-stack.md` |
 | 阶段 0 环境基座 | 装提交前隐私检查钩子、配置扫描模式、**确定项目所需技能并就绪**、确认门禁命令、**建立进度活文档** | `pre-commit.sh`、`privacy-patterns.example`、`history-scan.sh`、`skills-check.sh`、`skills-required.txt`、`tracking-template.md` | 钩子进 `.githooks/`；隐私模式、扫描脚本、技能脚本与清单进项目根目录（清单按实际栈增删）；活文档进 `docs/<project>-task-tracking.md` |
 | 阶段 1 需求澄清与设计 | 产出权威设计文档（含非目标、ADR 决策清单、阶段定义） | `design-template.md` | `docs/<project>-design.md` |
-| 阶段 2 写实施计划 | 按阶段拆解 Task，标注验收映射与门禁 | `implementation-plan-template.md` | `docs/<project>-implementation-plan-p<phase>.md` |
+| 阶段 2 写实施计划 | 按阶段拆解 Task，标注验收映射与门禁 | `implementation-plan-template.md` | `docs/<project>-p<阶段>-plan.md` |
 | 阶段 3 任务执行 | 执行期逐任务回填台账（不入库） | `ledger-template.md` | 台账目录，gitignored |
 | 阶段 4 评审与修正 | 无需新模板：评审结论、修正落实、延后项回填进台账 | —— | —— |
-| 阶段 5 验收 | 写验收清单与执行记录；建立该阶段 E2E 脚本 | `acceptance-template.md`、`e2e-template.sh` | 验收文档进 `docs/<project>-p<phase>-acceptance.md`；E2E 脚本进脚本目录 |
+| 阶段 5 验收 | 写验收清单与执行记录；建立该阶段 E2E 脚本 | `acceptance-template.md`、`e2e-template.sh` | 验收文档进 `docs/<project>-p<阶段>-acceptance.md`；E2E 脚本进脚本目录 |
 | 阶段 6 交接收尾 | 收尾输出物（验收文档、操作手册、README、AGENTS.md）；**持续更新进度活文档** | —— | `docs/` |
 
 **贯穿全程**：进度活文档在阶段 0 建立一次，此后每次会话收尾都更新它 —— 它是唯一进度源。文档命名遵循 `AGENTS.md`「文档规范」一节；中文输出、文件产出报告、代码注释、项目边界四项硬规则见 `AGENTS.md`（§八 表达与产出规范、§九 安全隐私红线）。
@@ -105,8 +105,8 @@ project-base/
 |---|---|---|---|
 | `tech-stack-template.md` | 文档 | 技术栈与周边环境选型骨架，含备选与切换触发条件、推导出的门禁命令与所需技能 | `docs/<project>-tech-stack.md` |
 | `design-template.md` | 文档 | 设计文档骨架，含 ADR 风格决策表、非目标、演进触发条件 | `docs/<project>-design.md` |
-| `implementation-plan-template.md` | 文档 | 实施计划骨架，含 Task N 约定、TDD 步骤、验收映射 | `docs/<project>-implementation-plan-p<phase>.md` |
-| `acceptance-template.md` | 文档 | 阶段验收清单 + 执行记录 | `docs/<project>-p<phase>-acceptance.md` |
+| `implementation-plan-template.md` | 文档 | 实施计划骨架，含 Task N 约定、TDD 步骤、验收映射 | `docs/<project>-p<阶段>-plan.md` |
+| `acceptance-template.md` | 文档 | 阶段验收清单 + 执行记录 | `docs/<project>-p<阶段>-acceptance.md` |
 | `tracking-template.md` | 文档 | 进度活文档，唯一进度源，供跨会话接棒 | `docs/<project>-task-tracking.md` |
 | `ledger-template.md` | 文档 | 单计划实施台账，逐任务回填状态/提交/评审/裁决 | 台账目录，**不入库** |
 | `e2e-template.sh` | 脚本 | 自含环境 E2E 脚本骨架，含断言、RESULT 汇总、trap 清理 | 脚本目录，按阶段命名并独占命名空间 |
@@ -117,7 +117,7 @@ project-base/
 | `skills-required.txt` | 配置 | 项目所需代理技能清单（流程型 + 实现型分层） | 项目根目录 `skills-required.txt`，按项目实际技术栈增删 |
 | `skills-check.sh` | 脚本 | 技能就绪检测与补齐 | 项目根目录 `skills-check.sh`（与清单同目录，默认就读旁边那份） |
 
-**占位符约定**：模板中以大写字母包夹的为占位符（如 `<项目名>`、`<STAGE>`、`<phase>`、`<project>`、`<hash>`、`<repo-root>`），复制后按项目实际替换。
+**占位符约定**：模板中以大写字母包夹的为占位符（如 `<项目名>`、`<STAGE>`、`<阶段>`、`<project>`、`<hash>`、`<repo-root>`），复制后按项目实际替换。
 
 **维护约定**：`templates/` 保持只读、空白、不含任何项目内容。项目里用完的模板留在项目的 `docs/` 中，本目录的原文件不动。
 

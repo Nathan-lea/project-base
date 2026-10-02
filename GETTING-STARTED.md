@@ -203,7 +203,7 @@ cp templates/design-template.md docs/<project>-design.md
 按设计里的阶段定义，**只为当前要做的阶段**写实施计划（不要一次写完所有阶段）：
 
 ```bash
-cp templates/implementation-plan-template.md docs/<project>-implementation-plan-p<phase>.md
+cp templates/implementation-plan-template.md docs/<project>-p<阶段>-plan.md
 ```
 
 计划含：Task N 划分、验收映射 A1–An、门禁命令、分支纪律、评审焦点。其中**门禁命令与分支策略从 `docs/<project>-tech-stack.md` 第 5、7 节搬过来**，别重新想。实现前先做 Pre-flight 接口扫描（谁产出、谁消费）。
@@ -229,8 +229,8 @@ cp templates/ledger-template.md <台账目录>/<plan-name>.md
 ## 步骤 9：阶段验收
 
 ```bash
-cp templates/e2e-template.sh scripts/e2e_p<phase>.sh   # 独占该阶段命名空间
-cp templates/acceptance-template.md docs/<project>-p<phase>-acceptance.md
+cp templates/e2e-template.sh scripts/e2e_p<阶段>.sh   # 独占该阶段命名空间
+cp templates/acceptance-template.md docs/<project>-p<阶段>-acceptance.md
 ```
 
 按 `WORKFLOW.md`「阶段 5」执行：分层验收 → 链零回归（断言数不回落）→ 沙箱不可验项排期真实验收。

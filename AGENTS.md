@@ -121,10 +121,16 @@ Ruling: <决定> — <原因> — <错误代价>
 | 技术栈选型 | `docs/<project>-tech-stack.md` |
 | 权威设计文档 | `docs/<project>-design.md` |
 | 阶段设计 | `docs/<project>-p<阶段>-design.md` |
-| 实施计划 | `docs/<project>-implementation-plan-p<阶段>.md` |
+| 实施计划 | `docs/<project>-p<阶段>-plan.md` |
 | 验收清单 | `docs/<project>-p<阶段>-acceptance.md` |
 | 进度活文档 | `docs/<project>-task-tracking.md` |
 | 交接文档 | `docs/<project>-p<阶段>-handoff.md`（按需） |
+
+命名分两组：**带阶段**的统一 `<project>-p<阶段>-<作用>.md`，**跨阶段**的不带 `-p<阶段>-` 段。三条硬约束：
+
+1. **阶段号补零两位**（`p01`、`p02`……`p99`）。字符串排序下 `p10 < p1`，不补零则第 11 个阶段起排序错乱，而那时文档早已建好、改名成本最高。
+2. **作用词只有四个**：`design` / `plan` / `acceptance` / `handoff`，不自造。阶段号之后必须紧跟作用词。
+3. **跨阶段文档不承诺排序位置**。`design` 碰巧排在 `p*` 前面（`d < p`），但 `task-tracking` 与 `tech-stack` 以 `t` 开头，会排到所有 `p*` 之后。排序只保证两件事：同阶段文件相邻、阶段间数值有序。
 
 > **禁用日期前缀命名**，散落难检索。专项设计与计划可平铺 `docs/<topic>-design.md`。
 
