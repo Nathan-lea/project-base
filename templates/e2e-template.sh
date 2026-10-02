@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # <项目名> <阶段> E2E 验收脚本模板
-# 用法：bash scripts/e2e_pSTAGE.sh
+# 用法：bash scripts/e2e_p<阶段>.sh
 # 说明：自含环境（依赖服务 + 服务端 + 前端）+ 断言 + RESULT 汇总 + trap cleanup
-# 占位符约定：STAGE=本脚本独占的阶段命名空间代号；以大写字母包夹的为占位符，替换后使用
+# 占位符约定：尖括号包夹的为占位符（如 <项目名>、<阶段>）；STAGE 变量的值
+#           也需手动替换为本阶段代号，两者要一致
 set -euo pipefail
 
 # ===== 环境准备 =====
-STAGE="pSTAGE"                                   # TODO: 替换为本脚本独占的阶段代号
+STAGE="p01"                                       # TODO: 替换为本阶段代号（补零两位，与 docs/<项目名>-p01-*.md 的阶段号一致）
 BASE_URL="http://127.0.0.1:8080"                 # TODO: 后端地址
 FRONTEND_URL="http://127.0.0.1:5173"             # TODO: 前端地址
 TMP="/tmp/${STAGE}-$$"
