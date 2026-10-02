@@ -27,8 +27,13 @@ jobs:
       - name: 隐私防护行为测试
         run: bash templates/privacy.test.sh
 
-      - name: 技能清单完整性
-        run: bash templates/skills-check.sh --check
+      - name: 技能清单完整性（仅报告，不阻断）
+        # 只报告不阻断：技能装在各人自己的环境里（~/.config/opencode/skills），
+        # GitHub runner 上必然一个都没有，MISSING=16、退出码 1。
+        # 这是 runner 的环境属性，不是 PR 的问题 —— 用阻断会让每个 PR
+        # 都挂在这条与改动无关的检查上。真正该阻断的是上面两项隐私检查
+        # 与下面的「.privacy-patterns 未入库」。
+        run: bash templates/skills-check.sh --check || true
 
       - name: 历史隐私体检
         run: bash templates/history-scan.sh
